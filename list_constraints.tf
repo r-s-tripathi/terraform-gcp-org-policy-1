@@ -1,10 +1,8 @@
-resource "google_organization_policy" "org_policy_list_allow_all" {
+resource "google_organization_policy" "services_policy" {
   org_id     = var.organization_id
-  constraint = var.constraint
+  constraint = "serviceuser.services"
 
-  list_policy {
-    allow {
-      all = true
-    }
+  restore_policy {
+    default = true
   }
 }
