@@ -61,15 +61,6 @@ resource "google_project_organization_policy" "storageResourceUseRestrictions_po
   }
 }
 
-resource "google_project_organization_policy" "workloadIdentityPoolProviders_policy" {
-  org_id     = var.organization_id
-  constraint = "iam.workloadIdentityPoolProviders"
-
-  restore_policy {
-    default = true
-  }
-}
-
 resource "google_project_organization_policy" "trustedImageProjects_policy" {
   org_id     = var.organization_id
   constraint = "compute.trustedImageProjects"
