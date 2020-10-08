@@ -1,0 +1,38 @@
+name: GCP Policy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: HashiCorp - Setup Terraform
+        uses: hashicorp/setup-terraform@v1.2.0
+        with:
+          cli_config_credentials_hostname: sentinelman.com
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN_TEAM }}
+          terraform_version: latest
+          terraform_wrapper: false
+         
+      - name: Terraform Init
+        run: terraform init -backend=false
+        
+      - name: Terraform fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        run: terraform plan -no-color
+      
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
