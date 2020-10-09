@@ -3,6 +3,11 @@ variable "organization_id" {
   description = "The project id"
 }
 
+variable "app_project" {
+  type = string
+  description = "GCP project name"
+}
+
 variable "gcp_auth_file" {
   type = string
   description = "GCP authentication file"
