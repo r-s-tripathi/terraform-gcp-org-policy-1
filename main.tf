@@ -37,7 +37,7 @@ resource "null_resource" "config_check" {
   Apply the constraint using the module
  *****************************************/
 module "org-policy" {
-  source      = "."
+  source      = "./"
   policy_for  = "project"
   project_id  = var.project_id
 }
