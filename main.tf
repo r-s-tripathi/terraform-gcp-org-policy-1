@@ -32,3 +32,16 @@ resource "null_resource" "config_check" {
     command = "echo 'For list constraints only one of enforce, allow, and deny may be included.'; false"
   }
 }
+
+provider "google" {
+  version = "~> 3.36.0"
+}
+
+/******************************************
+  Apply the constraint using the module
+ *****************************************/
+module "org-policy" {
+  source      = "."
+  policy_for  = "project"
+  project_id  = var.project_id
+}
