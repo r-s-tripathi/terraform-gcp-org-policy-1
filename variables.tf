@@ -3,11 +3,6 @@ variable "organization_id" {
   description = "The project id"
 }
 
-variable "source" {
-  type        = string
-  description = "dir"
-}
-
 variable "app_project" {
   type = string
   description = "GCP project name"
