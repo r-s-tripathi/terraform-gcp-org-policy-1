@@ -33,10 +33,6 @@ resource "null_resource" "config_check" {
   }
 }
 
-provider "google" {
-  version = "~> 3.36.0"
-}
-
 /******************************************
   Apply the constraint using the module
  *****************************************/
