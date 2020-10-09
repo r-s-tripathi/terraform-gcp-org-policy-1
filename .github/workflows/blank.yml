@@ -19,7 +19,7 @@ jobs:
           cli_config_credentials_hostname: sentinelman.com
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN_TEAM }}
           terraform_version: latest
-          terraform_wrapper: false
+          terraform_wrapper: true
          
       - name: Terraform Init
         run: terraform init
