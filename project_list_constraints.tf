@@ -1,6 +1,6 @@
 resource "google_project_organization_policy" "services_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "serviceuser.services"
 
  list_policy {
@@ -12,7 +12,7 @@ resource "google_project_organization_policy" "services_policy" {
 
 resource "google_project_organization_policy" "vmCanIpForward_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.vmCanIpForward"
 
   list_policy {
@@ -24,7 +24,7 @@ resource "google_project_organization_policy" "vmCanIpForward_policy" {
 
 resource "google_project_organization_policy" "allowServiceAccountCredentialLifetimeExtension_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "iam.allowServiceAccountCredentialLifetimeExtension"
 
   list_policy {
@@ -36,7 +36,7 @@ resource "google_project_organization_policy" "allowServiceAccountCredentialLife
 
 resource "google_project_organization_policy" "workloadIdentityPoolProviders_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "iam.workloadIdentityPoolProviders"
 
   list_policy {
@@ -48,7 +48,7 @@ resource "google_project_organization_policy" "workloadIdentityPoolProviders_pol
 
 resource "google_project_organization_policy" "allowedIngressSettings_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "cloudfunctions.allowedIngressSettings"
 
   list_policy {
@@ -60,7 +60,7 @@ resource "google_project_organization_policy" "allowedIngressSettings_policy" {
 
 resource "google_project_organization_policy" "allowedVpcConnectorEgressSettings_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "cloudfunctions.allowedVpcConnectorEgressSettings"
 
   list_policy {
@@ -72,7 +72,7 @@ resource "google_project_organization_policy" "allowedVpcConnectorEgressSettings
 
 resource "google_project_organization_policy" "storageResourceUseRestrictions_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.storageResourceUseRestrictions"
 
   list_policy {
@@ -84,7 +84,7 @@ resource "google_project_organization_policy" "storageResourceUseRestrictions_po
 
 resource "google_project_organization_policy" "trustedImageProjects_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.trustedImageProjects"
 
   list_policy {
@@ -96,7 +96,7 @@ resource "google_project_organization_policy" "trustedImageProjects_policy" {
 
 resource "google_project_organization_policy" "retentionPolicySeconds_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "storage.retentionPolicySeconds"
 
   list_policy {
@@ -108,7 +108,7 @@ resource "google_project_organization_policy" "retentionPolicySeconds_policy" {
 
 resource "google_project_organization_policy" "restrictVpnPeerIPs_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictVpnPeerIPs"
 
   list_policy {
@@ -120,7 +120,7 @@ resource "google_project_organization_policy" "restrictVpnPeerIPs_policy" {
 
 resource "google_project_organization_policy" "restrictVpcPeering_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictVpcPeering"
 
   list_policy {
@@ -132,7 +132,7 @@ resource "google_project_organization_policy" "restrictVpcPeering_policy" {
 
 resource "google_project_organization_policy" "restrictSharedVpcSubnetworks_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictSharedVpcSubnetworks"
 
   list_policy {
@@ -144,7 +144,7 @@ resource "google_project_organization_policy" "restrictSharedVpcSubnetworks_poli
 
 resource "google_project_organization_policy" "restrictSharedVpcHostProjects_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictSharedVpcHostProjects"
 
   list_policy {
@@ -156,7 +156,7 @@ resource "google_project_organization_policy" "restrictSharedVpcHostProjects_pol
 
 resource "google_project_organization_policy" "restrictPartnerInterconnectUsage_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictPartnerInterconnectUsage"
 
   list_policy {
@@ -168,7 +168,7 @@ resource "google_project_organization_policy" "restrictPartnerInterconnectUsage_
 
 resource "google_project_organization_policy" "restrictProtocolForwardingCreationForTypes_policy" {
 
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictProtocolForwardingCreationForTypes"
 
   list_policy {
@@ -180,7 +180,7 @@ resource "google_project_organization_policy" "restrictProtocolForwardingCreatio
   
 resource "google_project_organization_policy" "restrictDirectGoogleAccess_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictDirectGoogleAccess"
 
   list_policy {
@@ -192,7 +192,7 @@ resource "google_project_organization_policy" "restrictDirectGoogleAccess_policy
 
 resource "google_project_organization_policy" "restrictLoadBalancerCreationForTypes_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictLoadBalancerCreationForTypes"
 
   list_policy {
@@ -204,7 +204,7 @@ resource "google_project_organization_policy" "restrictLoadBalancerCreationForTy
 
 resource "google_project_organization_policy" "restrictCloudNATUsage_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictCloudNATUsage"
 
   list_policy {
@@ -216,7 +216,7 @@ resource "google_project_organization_policy" "restrictCloudNATUsage_policy" {
 
 resource "google_project_organization_policy" "restrictDedicatedInterconnectUsage_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictDedicatedInterconnectUsage"
 
   list_policy {
@@ -228,7 +228,7 @@ resource "google_project_organization_policy" "restrictDedicatedInterconnectUsag
 
 resource "google_project_organization_policy" "restrictAuthenticatedGoogleConnection_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "compute.restrictAuthenticatedGoogleConnection"
 
   list_policy {
@@ -240,7 +240,7 @@ resource "google_project_organization_policy" "restrictAuthenticatedGoogleConnec
 
 resource "google_project_organization_policy" "resourceLocations_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "gcp.resourceLocations"
 
   list_policy {
@@ -252,7 +252,7 @@ resource "google_project_organization_policy" "resourceLocations_policy" {
 
 resource "google_project_organization_policy" "allowedPolicyMemberDomains_policy" {
   
-  project     = var.organization_id
+  project     = var.project_id
   constraint = "iam.allowedPolicyMemberDomains"
 
   list_policy {
