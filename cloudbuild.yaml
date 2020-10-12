@@ -5,17 +5,8 @@ steps:
 
 - id: 'tf plan'
   name: 'hashicorp/terraform:0.11.14'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - |
-      terraform plan
+  args: [ terraform plan ]
       
 - id: 'tf apply'
   name: 'hashicorp/terraform:0.11.14'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - |       
-      terraform apply
-      
+  args: [ terraform apply ]
