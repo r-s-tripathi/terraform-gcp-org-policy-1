@@ -1,5 +1,4 @@
 resource "google_project_organization_policy" "services_policy" {
-  count = local.project && local.list_policy && local.enforce == false ? 1 : 0
   
   project     = var.organization_id
   constraint = "serviceuser.services"
@@ -12,7 +11,6 @@ resource "google_project_organization_policy" "services_policy" {
 }
 
 resource "google_project_organization_policy" "vmCanIpForward_policy" {
-  count = local.project && local.list_policy && local.enforce == false ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.vmCanIpForward"
@@ -25,7 +23,6 @@ resource "google_project_organization_policy" "vmCanIpForward_policy" {
 }
 
 resource "google_project_organization_policy" "allowServiceAccountCredentialLifetimeExtension_policy" {
-  count = local.project && local.list_policy && local.enforce == false ? 1 : 0
   
   project     = var.organization_id
   constraint = "iam.allowServiceAccountCredentialLifetimeExtension"
@@ -38,7 +35,6 @@ resource "google_project_organization_policy" "allowServiceAccountCredentialLife
 }
 
 resource "google_project_organization_policy" "workloadIdentityPoolProviders_policy" {
-  count = local.project && local.list_policy && local.enforce == true ? 1 : 0
   
   project     = var.organization_id
   constraint = "iam.workloadIdentityPoolProviders"
@@ -51,7 +47,6 @@ resource "google_project_organization_policy" "workloadIdentityPoolProviders_pol
 }
 
 resource "google_project_organization_policy" "allowedIngressSettings_policy" {
-  count = local.project && local.list_policy && local.enforce == true ? 1 : 0
   
   project     = var.organization_id
   constraint = "cloudfunctions.allowedIngressSettings"
@@ -64,7 +59,6 @@ resource "google_project_organization_policy" "allowedIngressSettings_policy" {
 }
 
 resource "google_project_organization_policy" "allowedVpcConnectorEgressSettings_policy" {
-  count = local.project && local.list_policy && local.enforce == true ? 1 : 0
   
   project     = var.organization_id
   constraint = "cloudfunctions.allowedVpcConnectorEgressSettings"
@@ -77,7 +71,6 @@ resource "google_project_organization_policy" "allowedVpcConnectorEgressSettings
 }
 
 resource "google_project_organization_policy" "storageResourceUseRestrictions_policy" {
-  count = local.project && local.list_policy && local.enforce == true ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.storageResourceUseRestrictions"
@@ -90,7 +83,6 @@ resource "google_project_organization_policy" "storageResourceUseRestrictions_po
 }
 
 resource "google_project_organization_policy" "trustedImageProjects_policy" {
-  count = local.project && local.list_policy && var.deny_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.trustedImageProjects"
@@ -103,7 +95,6 @@ resource "google_project_organization_policy" "trustedImageProjects_policy" {
 }
 
 resource "google_project_organization_policy" "retentionPolicySeconds_policy" {
-  count = local.project && local.list_policy && var.deny_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "storage.retentionPolicySeconds"
@@ -116,7 +107,6 @@ resource "google_project_organization_policy" "retentionPolicySeconds_policy" {
 }
 
 resource "google_project_organization_policy" "restrictVpnPeerIPs_policy" {
-  count = local.project && local.list_policy && var.deny_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.restrictVpnPeerIPs"
@@ -129,7 +119,6 @@ resource "google_project_organization_policy" "restrictVpnPeerIPs_policy" {
 }
 
 resource "google_project_organization_policy" "restrictVpcPeering_policy" {
-  count = local.project && local.list_policy && var.deny_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.restrictVpcPeering"
@@ -142,7 +131,6 @@ resource "google_project_organization_policy" "restrictVpcPeering_policy" {
 }
 
 resource "google_project_organization_policy" "restrictSharedVpcSubnetworks_policy" {
-  count = local.project && local.list_policy && var.deny_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.restrictSharedVpcSubnetworks"
@@ -155,7 +143,6 @@ resource "google_project_organization_policy" "restrictSharedVpcSubnetworks_poli
 }
 
 resource "google_project_organization_policy" "restrictSharedVpcHostProjects_policy" {
-  count = local.project && local.list_policy && var.allow_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.restrictSharedVpcHostProjects"
@@ -168,7 +155,6 @@ resource "google_project_organization_policy" "restrictSharedVpcHostProjects_pol
 }
 
 resource "google_project_organization_policy" "restrictPartnerInterconnectUsage_policy" {
-  count = local.project && local.list_policy && var.allow_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.restrictPartnerInterconnectUsage"
@@ -181,8 +167,7 @@ resource "google_project_organization_policy" "restrictPartnerInterconnectUsage_
 }
 
 resource "google_project_organization_policy" "restrictProtocolForwardingCreationForTypes_policy" {
-  count = local.project && local.list_policy && var.allow_list_length > 0 ? 1 : 0
-  
+
   project     = var.organization_id
   constraint = "compute.restrictProtocolForwardingCreationForTypes"
 
@@ -194,7 +179,6 @@ resource "google_project_organization_policy" "restrictProtocolForwardingCreatio
 }
   
 resource "google_project_organization_policy" "restrictDirectGoogleAccess_policy" {
-  count = local.project && local.list_policy && var.allow_list_length > 0 ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.restrictDirectGoogleAccess"
@@ -207,7 +191,6 @@ resource "google_project_organization_policy" "restrictDirectGoogleAccess_policy
 }
 
 resource "google_project_organization_policy" "restrictLoadBalancerCreationForTypes_policy" {
-  for_each = (local.list_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "compute.restrictLoadBalancerCreationForTypes"
@@ -220,7 +203,6 @@ resource "google_project_organization_policy" "restrictLoadBalancerCreationForTy
 }
 
 resource "google_project_organization_policy" "restrictCloudNATUsage_policy" {
-  for_each = (local.list_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "compute.restrictCloudNATUsage"
@@ -233,7 +215,6 @@ resource "google_project_organization_policy" "restrictCloudNATUsage_policy" {
 }
 
 resource "google_project_organization_policy" "restrictDedicatedInterconnectUsage_policy" {
-  for_each = (local.list_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "compute.restrictDedicatedInterconnectUsage"
@@ -246,7 +227,6 @@ resource "google_project_organization_policy" "restrictDedicatedInterconnectUsag
 }
 
 resource "google_project_organization_policy" "restrictAuthenticatedGoogleConnection_policy" {
-  for_each = (local.list_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "compute.restrictAuthenticatedGoogleConnection"
@@ -259,7 +239,6 @@ resource "google_project_organization_policy" "restrictAuthenticatedGoogleConnec
 }
 
 resource "google_project_organization_policy" "resourceLocations_policy" {
-  for_each = (local.list_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "gcp.resourceLocations"
@@ -272,7 +251,6 @@ resource "google_project_organization_policy" "resourceLocations_policy" {
 }
 
 resource "google_project_organization_policy" "allowedPolicyMemberDomains_policy" {
-  for_each = (local.list_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "iam.allowedPolicyMemberDomains"
