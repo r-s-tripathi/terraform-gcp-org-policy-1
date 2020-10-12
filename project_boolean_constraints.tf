@@ -1,5 +1,4 @@
 resource "google_project_organization_policy" "automaticIamGrantsForDefaultServiceAccounts_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "iam.automaticIamGrantsForDefaultServiceAccounts"
@@ -10,7 +9,6 @@ resource "google_project_organization_policy" "automaticIamGrantsForDefaultServi
 }
 
 resource "google_project_organization_policy" "disableCloudLogging_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "gcp.disableCloudLogging"
@@ -21,7 +19,6 @@ resource "google_project_organization_policy" "disableCloudLogging_policy" {
 }
 
 resource "google_project_organization_policy" "disableGuestAttributesAccess_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.disableGuestAttributesAccess"
@@ -32,7 +29,6 @@ resource "google_project_organization_policy" "disableGuestAttributesAccess_poli
 }
 
 resource "google_project_organization_policy" "disableInternetNetworkEndpointGroup_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.disableInternetNetworkEndpointGroup"
@@ -43,7 +39,6 @@ resource "google_project_organization_policy" "disableInternetNetworkEndpointGro
 }
 
 resource "google_project_organization_policy" "disableServiceAccountCreation_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "iam.disableServiceAccountCreation"
@@ -54,7 +49,6 @@ resource "google_project_organization_policy" "disableServiceAccountCreation_pol
 }
 
 resource "google_project_organization_policy" "disableServiceAccountKeyCreation_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "iam.disableServiceAccountKeyCreation"
@@ -65,7 +59,6 @@ resource "google_project_organization_policy" "disableServiceAccountKeyCreation_
 }	  
 
 resource "google_project_organization_policy" "disableServiceAccountKeyUpload_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "iam.disableServiceAccountKeyUpload"
@@ -76,7 +69,6 @@ resource "google_project_organization_policy" "disableServiceAccountKeyUpload_po
 }
 
 resource "google_project_organization_policy" "disableCodeDownload_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "appengine.disableCodeDownload"
@@ -87,7 +79,6 @@ resource "google_project_organization_policy" "disableCodeDownload_policy" {
 }
 
 resource "google_project_organization_policy" "disableNestedVirtualization_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.disableNestedVirtualization"
@@ -98,7 +89,6 @@ resource "google_project_organization_policy" "disableNestedVirtualization_polic
 }
 
 resource "google_project_organization_policy" "disableSerialPortAccess_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.disableSerialPortAccess"
@@ -109,7 +99,6 @@ resource "google_project_organization_policy" "disableSerialPortAccess_policy" {
 }
 
 resource "google_project_organization_policy" "disableSerialPortLogging_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.disableSerialPortLogging"
@@ -120,7 +109,6 @@ resource "google_project_organization_policy" "disableSerialPortLogging_policy" 
 }
 		  
 resource "google_project_organization_policy" "disableWorkloadIdentityClusterCreation_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "iam.disableWorkloadIdentityClusterCreation"
@@ -131,8 +119,7 @@ resource "google_project_organization_policy" "disableWorkloadIdentityClusterCre
 }
 
 resource "google_project_organization_policy" "uniformBucketLevelAccess_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
-  
+
   project     = var.organization_id
   constraint = "storage.uniformBucketLevelAccess"
 
@@ -142,7 +129,6 @@ resource "google_project_organization_policy" "uniformBucketLevelAccess_policy" 
 }
   
 resource "google_project_organization_policy" "detailedAuditLoggingMode_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "gcp.detailedAuditLoggingMode" 
@@ -153,7 +139,6 @@ resource "google_project_organization_policy" "detailedAuditLoggingMode_policy" 
 }  
 
 resource "google_project_organization_policy" "requireOsLogin_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "compute.requireOsLogin"  
@@ -164,7 +149,6 @@ resource "google_project_organization_policy" "requireOsLogin_policy" {
 }  
 
 resource "google_project_organization_policy" "requireVPCConnector_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "cloudfunctions.requireVPCConnector"  
@@ -175,7 +159,6 @@ resource "google_project_organization_policy" "requireVPCConnector_policy" {
 }  
 
 resource "google_project_organization_policy" "restrictAuthorizedNetworks_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "sql.restrictAuthorizedNetworks"  
@@ -186,7 +169,6 @@ resource "google_project_organization_policy" "restrictAuthorizedNetworks_policy
 }    
 
 resource "google_project_organization_policy" "disableDefaultEncryptionCreation_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "sql.disableDefaultEncryptionCreation"  
@@ -197,7 +179,6 @@ resource "google_project_organization_policy" "disableDefaultEncryptionCreation_
 }  
           
 resource "google_project_organization_policy" "restrictPublicIp_policy" {
-  count = local.project && local.boolean_policy ? 1 : 0
   
   project     = var.organization_id
   constraint = "sql.restrictPublicIp"  
@@ -208,7 +189,6 @@ resource "google_project_organization_policy" "restrictPublicIp_policy" {
 }
 
 resource "google_project_organization_policy" "restrictXpnProjectLienRemoval_policy" {
-  for_each = (local.boolean_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "compute.restrictXpnProjectLienRemoval"  
@@ -219,7 +199,6 @@ resource "google_project_organization_policy" "restrictXpnProjectLienRemoval_pol
 }
 
 resource "google_project_organization_policy" "requireShieldedVm_policy" {
-  for_each = (local.boolean_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "compute.requireShieldedVm"  
@@ -230,7 +209,6 @@ resource "google_project_organization_policy" "requireShieldedVm_policy" {
 }      
 
 resource "google_project_organization_policy" "skipDefaultNetworkCreation_policy" {
-  for_each = (local.boolean_policy && ! local.project) ? var.exclude_projects : []
   
   project     = var.organization_id
   constraint = "compute.skipDefaultNetworkCreation"  
