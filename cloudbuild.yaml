@@ -6,4 +6,20 @@ steps:
   - '-c'
   - |
       terraform init
+
+- id: 'tf plan'
+  name: 'hashicorp/terraform:0.11.14'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      terraform plan
+      
+- id: 'tf apply'
+  name: 'hashicorp/terraform:0.11.14'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |       
+      terraform apply
       
