@@ -1,12 +1,12 @@
 steps:
 - id: 'tf init'
-  name: 'hashicorp/terraform:0.12.1'
+  name: 'hashicorp/terraform:0.13'
   args: [ terraform init ]
 
 - id: 'tf plan'
-  name: 'hashicorp/terraform:0.12.1'
+  name: 'hashicorp/terraform:0.13'
   args: [ terraform plan ]
       
 - id: 'tf apply'
-  name: 'hashicorp/terraform:0.12.1'
+  name: 'hashicorp/terraform:0.13'
   args: [ terraform apply ]
